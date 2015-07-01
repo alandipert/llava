@@ -76,7 +76,7 @@ import org.jdom.Comment;
 import org.jdom.DocType;
 import org.jdom.Document;
 import org.jdom.Element;
-import org.jdom.Entity;
+import org.jdom.EntityRef;
 import org.jdom.Namespace;
 import org.jdom.ProcessingInstruction;
 
@@ -527,7 +527,7 @@ public class XMLOutputter implements Cloneable {
         // Print out root element, as well as any root level
         // comments and processing instructions, 
         // starting with no indentation
-        Iterator i = doc.getMixedContent().iterator();
+        Iterator i = doc.getContent().iterator();
         while (i.hasNext()) {
             Object obj = i.next();
             if (obj instanceof Element) {
@@ -592,7 +592,7 @@ public class XMLOutputter implements Cloneable {
      * @param indent <code>int</code> level of indention.  */
     public void outputElementContent(Element element, Writer out)
                       throws IOException {
-        List mixedContent = element.getMixedContent();
+        List mixedContent = element.getContent();
         printElementContent(element, out, indentLevel,
                             new NamespaceStack(),
                             mixedContent);
@@ -692,7 +692,7 @@ public class XMLOutputter implements Cloneable {
      * @param entity <code>Entity</code> to output.
      * @param out <code>Writer</code> to write to.
      **/
-    public void output(Entity entity, Writer out) throws IOException {
+    public void output(EntityRef entity, Writer out) throws IOException {
         printEntity(entity, out);
     }
     
@@ -704,7 +704,7 @@ public class XMLOutputter implements Cloneable {
      * @param cdata <code>CDATA</code> to output.
      * @param out <code>OutputStream</code> to write to.
      **/
-    public void output(Entity entity, OutputStream out) throws IOException {
+    public void output(EntityRef entity, OutputStream out) throws IOException {
         Writer writer = makeWriter(out);
         printEntity(entity, writer);
         writer.flush();         // Flush the output to the underlying stream
@@ -863,7 +863,7 @@ public class XMLOutputter implements Cloneable {
                              Writer out, int indentLevel) throws IOException
     {
         indent(out, indentLevel);
-        out.write(comment.getSerializedForm());  //XXX
+        out.write(comment.toString());  //XXX
         maybePrintln(out);
     }
       
@@ -880,7 +880,7 @@ public class XMLOutputter implements Cloneable {
                         Writer out, int indentLevel) throws IOException {
                                         
         indent(out, indentLevel);
-        out.write(pi.getSerializedForm());
+        out.write(pi.toString());
         maybePrintln(out);
 
     }
@@ -899,7 +899,7 @@ public class XMLOutputter implements Cloneable {
                         Writer out, int indentLevel) throws IOException {
         
         indent(out, indentLevel);
-        out.write(cdata.getSerializedForm());
+        out.write(cdata.toString());
         maybePrintln(out);
 
     }
@@ -919,7 +919,7 @@ public class XMLOutputter implements Cloneable {
                                 int indentLevel, NamespaceStack namespaces)
                                 throws IOException {
 
-        List mixedContent = element.getMixedContent();
+        List mixedContent = element.getContent();
 
         boolean empty = mixedContent.size() == 0;
         boolean stringOnly =
@@ -1078,9 +1078,9 @@ public class XMLOutputter implements Cloneable {
                     printElement((Element) content, out,
                                  indentLevel + 1, namespaces);
                    justOutput = Element.class;
-                } else if (content instanceof Entity) {
-                    printEntity((Entity) content, out);
-                   justOutput = Entity.class;
+                } else if (content instanceof EntityRef) {
+                    printEntity((EntityRef) content, out);
+                   justOutput = EntityRef.class;
                 } else if (content instanceof ProcessingInstruction) {
                     printProcessingInstruction((ProcessingInstruction) content,
                                                out, indentLevel + 1);
@@ -1127,8 +1127,8 @@ public class XMLOutputter implements Cloneable {
      *
      * @param entity <code>Entity</code> to output.
      * @param out <code>Writer</code> to write to.  */
-    protected void printEntity(Entity entity, Writer out) throws IOException {
-        out.write(entity.getSerializedForm());
+    protected void printEntity(EntityRef entity, Writer out) throws IOException {
+        out.write(entity.toString());
     }
     
 

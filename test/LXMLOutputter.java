@@ -27,7 +27,7 @@ import org.jdom.Comment;
 import org.jdom.DocType;
 import org.jdom.Document;
 import org.jdom.Element;
-import org.jdom.Entity;
+import org.jdom.EntityRef;
 import org.jdom.Namespace;
 import org.jdom.ProcessingInstruction;
 
@@ -107,7 +107,7 @@ public class LXMLOutputter extends XMLOutputter {
     {
         indent(out, indentLevel);
         out.write("(!-- ");
-	String sf = comment.getSerializedForm();
+	String sf = comment.toString();
 	out.write("\"" + sf.substring(4, sf.length() - 4) + "\"");
 	out.write(")");
 	//        maybePrintln(out);
@@ -119,7 +119,7 @@ public class LXMLOutputter extends XMLOutputter {
                         Writer out, int indentLevel) throws IOException {
                                         
         indent(out, indentLevel);
-	String sf = pi.getSerializedForm();
+	String sf = pi.toString();
 	out.write("(? ");
 	// REVISIT - still has =
         out.write(sf.substring(2, sf.length() - 3));
@@ -134,7 +134,7 @@ public class LXMLOutputter extends XMLOutputter {
         
         indent(out, indentLevel);
 	out.write("(");
-	String sf = cdata.getSerializedForm();
+	String sf = cdata.toString();
         out.write(sf.substring(1, sf.length() - 2)); // REVISIT
 	out.write(")");
         //maybePrintln(out);
@@ -147,7 +147,7 @@ public class LXMLOutputter extends XMLOutputter {
                                 int indentLevel, NamespaceStack namespaces)
                                 throws IOException {
 
-        List mixedContent = element.getMixedContent();
+        List mixedContent = element.getContent();
 
         boolean empty = mixedContent.size() == 0;
         boolean stringOnly =
@@ -327,9 +327,9 @@ public class LXMLOutputter extends XMLOutputter {
                     printElement((Element) content, out,
                                  indentLevel + 1, namespaces);
                    justOutput = Element.class;
-                } else if (content instanceof Entity) {
-                    printEntity((Entity) content, out);
-                   justOutput = Entity.class;
+                } else if (content instanceof EntityRef) {
+                    printEntity((EntityRef) content, out);
+                   justOutput = EntityRef.class;
                 } else if (content instanceof ProcessingInstruction) {
                     printProcessingInstruction((ProcessingInstruction) content,
                                                out, indentLevel + 1);
@@ -344,8 +344,8 @@ public class LXMLOutputter extends XMLOutputter {
     }  // printElementContent
 
 
-    protected void printEntity(Entity entity, Writer out) throws IOException {
-	String sf = entity.getSerializedForm();
+    protected void printEntity(EntityRef entity, Writer out) throws IOException {
+	String sf = entity.toString();
         out.write("(&; ");
 	out.write(sf.substring(1, sf.length() - 1));
 	out.write(")");

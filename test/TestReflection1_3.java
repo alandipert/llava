@@ -29,9 +29,9 @@ public class TestReflection1_3
 
     public static void testReflection1_3 ()
     {
-	Test.dsop("begin: testReflection1_3")
+      Test.dsop("begin: testReflection1_3");
 	testProxy();
-	Test.dsop("end: testReflection1_3")
+	Test.dsop("end: testReflection1_3");
     }
 
     public static void testProxy ()
