@@ -223,6 +223,7 @@ public class RI
 	return method; 
     }
 
+    @SuppressWarnings("unchecked")
     private static Method findMethodFromScratch (String methodName,
 						 Class targetClass,
 						 Class[] argTypes) 
@@ -289,7 +290,7 @@ public class RI
     private static List collectCandidateConstructors(Class targetClass,
 						     Class[] argTypes)
     {
-	List candidates = new ArrayList();
+	List<Constructor> candidates = new ArrayList<Constructor>();
 
 	Constructor[] constructors = targetClass.getDeclaredConstructors();
 	for (int i = 0; i < constructors.length; i++) {
@@ -306,7 +307,7 @@ public class RI
 	//	throws
 	//	    NoSuchMethodException
     {
-	List candidates = new ArrayList();
+	List<Method> candidates = new ArrayList<Method>();
 
 	for (; targetClass != null; targetClass = targetClass.getSuperclass()){
 	    Method[] methods = targetClass.getDeclaredMethods();
@@ -487,6 +488,7 @@ public class RI
 	return true;
     }
 
+    @SuppressWarnings("unchecked")
     private static boolean equalType (Class parmType, Class argType) 
     {
 	// Also used by isMoreSpecific so argType could be primitive.
@@ -576,7 +578,7 @@ public class RI
     //
   
     // 89 - see _Java 2 Performance and Idiom Guide_ p 67.
-    private static Map   cachedMethods = new HashMap<Key,Method>(89);
+    private static Map<Key,Method> cachedMethods = new HashMap<Key,Method>(89);
 
     private static Class NullClass;
     private static Class BooleanClass;

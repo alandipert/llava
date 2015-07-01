@@ -101,7 +101,7 @@ public class NamespaceImpl
 {
     private String name;
 
-    private Hashtable map;
+    private Hashtable<String,Object> map;
 
     private Vector refList;
 
@@ -687,6 +687,7 @@ else
 	return null;
     }
 
+    @SuppressWarnings("unchecked")
     public void addToRefList (NamespaceImpl reference)
     {
 	Vector refList = getRefList();
@@ -805,7 +806,7 @@ else
 	int size = refList.size();
 	for (int i = 0; i < size; i++) {
 	    NamespaceImpl current = (NamespaceImpl) refList.elementAt(i);
-	    Hashtable map = current.getMap();
+	    Hashtable<String,Object> map = current.getMap();
 	    Object result = lookupInMap(map, identifier, 
 					classVariables.NOT_FOUND);
 	    if (result != classVariables.NOT_FOUND) {
@@ -968,7 +969,7 @@ else
 	return classVariables.llavaFilesCurrentlyBeingLoaded;
     }
 
-    public Hashtable getMap ()
+    public Hashtable<String,Object> getMap ()
     {
 	return map; 
     }
@@ -1024,6 +1025,7 @@ else
 
     // Results in alpha order.
 
+    @SuppressWarnings("unchecked")
     public Pair getFullNameNamespaceMapKeys ()
     {
 	Enumeration keys = classVariables.fullNameNamespaceMap.keys();

@@ -19,16 +19,6 @@ package org.llava;
 public interface LlavaVersion
 {
     public LlavaVersion newLlavaVersion ();
-
-    public String getName ();
-
-    public String getYear ();
-
-    public String getMonth ();
-    
-    public String getDay ();
-
-    public String getOptional ();
 }
 
 // End of file.
