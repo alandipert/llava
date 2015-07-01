@@ -96,8 +96,8 @@
 \typeout{Excerpts were taken from (Journal Style) 'esub2acm.cls'.}
 \typeout{****** Bugs/comments/suggestions/technicalities to Gerry Murray -- murray@hq.acm.org ******}
 \typeout{Questions on the style, SIGS policies, etc. to Adrienne Griscti griscti@acm.org}
-\oddsidemargin 2.5pc
-\evensidemargin 2.5pc
+\oddsidemargin 4.5pc
+\evensidemargin 4.5pc
 \advance\oddsidemargin by -1in  % Correct for LaTeX gratuitousness
 \advance\evensidemargin by -1in % Correct for LaTeX gratuitousness
 \marginparwidth 0pt             % Margin pars are not allowed.
@@ -123,10 +123,8 @@
 \headheight 12pt                % Height of box containing running head.
 \headsep 25pt                   % Space between running head and text.
 
-%\textheight 666pt       % 9 1/4 column height
-%\textheight 716pt
-\textheight 736pt
-\textwidth 45pc         % Width of text line.
+\textheight 666pt       % 9 1/4 column height
+\textwidth 42pc         % Width of text line.
                         % For two-column mode:
 \columnsep 2pc          %    Space between columns
 \columnseprule 0pt      %    Width of rule between columns.
@@ -560,8 +558,8 @@
  \setcounter{footnote}{0}
  \let\maketitle\relax
  \let\@maketitle\relax
- \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\gdef\@subtitle{}\let\thanks\relax}
-% \@copyrightspace
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\gdef\@subtitle{}\let\thanks\relax
+ \@copyrightspace}
 
 %% CHANGES ON NEXT LINES
 \newif\if@ll % to record which version of LaTeX is in use
@@ -573,7 +571,7 @@
 
 \if@ll
   \NeedsTeXFormat{LaTeX2e}
-  \ProvidesClass{acm-final/sig-alternate-modified} [2002/02/10 - V1.6 - based on acmproc.cls V1.3 <Nov. 30 '99>]
+  \ProvidesClass{acm-final/sig-alternate} [2002/02/10 - V1.6 - based on acmproc.cls V1.3 <Nov. 30 '99>]
   \RequirePackage{latexsym}% QUERY: are these two really needed?
   \let\dooptions\ProcessOptions
 \else

@@ -1,0 +1,18 @@
+Date: Thu, 19 May 2005 09:33:31 -0700
+From: Peter Norvig <peter.norvig@gmail.com>
+Subject: Re: Reference for initial JScheme interpreter technique of 2000
+Sender: peter.norvig@gmail.com
+To: Harold.Carr@Sun.COM
+Cc: Timothy J Hickey <tjhickey@brandeis.edu>
+
+You're right, Ken and Tim added the Engine abstraction.  I remember
+some email about it; I realized that we needed something to package u=
+p
+state, but they had a better solution than what I was coming up with.
+
+I did have a Scheme interpreter/compiler in PAIP, but I based my
+original work on Sllk more on the book "Lisp in Small Pieces".
+
+Good luck on your project,
+-Peter
+

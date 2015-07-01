@@ -1,0 +1,36 @@
+This is pdfTeX, Version 3.14159-13d (Web2C 7.3.1) (format=pdflatex 2001.8.27)  17 MAY 2005 14:36
+**parallel.dvi
+(parallel.dvi[/import/pkg/tetex/texmf/pdftex/config/pdftex.cfg]
+LaTeX2e <1999/12/01> patch level 1
+Babel <v3.6Z> and hyphenation patterns for american, french, german, ngerman, n
+ohyphenation, loaded.
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 ÷
+     ^^B^^A^^83^^92À^^\;^^@^^@^^@^^@^^Cè^^[ TeX output 2005.05.17:1356^^8b^^...
+
+? 
+! Emergency stop.
+ ...                                              
+                                                  
+l.1 ÷
+     ^^B^^A^^83^^92À^^\;^^@^^@^^@^^@^^Cè^^[ TeX output 2005.05.17:1356^^8b^^...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+ 
+Here is how much of TeX's memory you used:
+ 4 strings out of 10631
+ 167 string characters out of 68573
+ 44002 words of memory out of 263001
+ 3055 multiletter control sequences out of 10000+0
+ 3640 words of font info for 14 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 1000
+ 5i,0n,4p,126b,14s stack positions out of 300i,100n,500p,50000b,4000s
+!  ==> Fatal error occurred, the output PDF file not finished!

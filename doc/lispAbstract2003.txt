@@ -1,0 +1,76 @@
+
+
+Subject: 
+         title and abstract for International Lisp Conference 2003
+         submission
+   Date: 
+         Sat, 14 Jun 2003 12:26:04 -0700 (PDT)
+   From: 
+         Harold Carr <Harold.Carr@Sun.COM>
+     To: 
+         delacaze@alu.org
+     CC: 
+         Harold.Carr@Sun.COM, carr@xmission.com, lfettner@franz.com
+
+
+
+
+Hello,
+
+My name is Harold Carr.  I work for Sun Microsystems.  I am submitting
+this paper independently.  I used to work for Autodesk.  I was the
+Chief Architect of Lisp Technology when Visual Lisp was introduced in
+1998.  I presented a paper on that work at the LISP's 40th Anniversary
+Conference.  In the 80s I did research in LISP via Portable Standard
+Lisp (PSL) and Utah Common Lisp (UCL) at the University of Utah (with
+various papers in LASC and conferences).
+
+I will be away the next two weeks presenting a paper at Middleware
+2003 in Brazil so, if you reply, please reply to both:
+
+     harold.carr@sun.com
+     carr@xmission.com
+
+in the hopes that I will be able to read mail.
+
+Regards,
+Harold Carr, Ph.D.
+
+------------------------------------------------------------------------------
+
+TITLE:
+
+         llava : LISP + Java : A Dream of A Lifetime
+
+ABSTRACT: 
+
+llava is a LISP scripting front-end to Java. Its distinguishing
+feature is its "undefined variable" procedure. When a variable in the
+function position is undefined, that procedure uses Java reflection on
+the object in the function position to try to find a method in the
+argument's class that matches the type of the remaining arguments. If
+a match is found it invokes the method, otherwise the typical
+"undefined" is raised.  This feature, coupled with a few primitives
+(e.g., new, try, throw, assignment, if, lambda, quote) and macros,
+provides a simple, small, powerful LISP interface to Java.
+
+llava compiles to an internal representation which is executed by an
+"engine" (like JScheme) providing proper last-call optimization.  It
+includes a "package" system similar to Java.  It is highly modular and
+pluggable.
+
+llava is different than JScheme in that it does not require extra
+"character" syntax to invoke a Java method.
+
+llava is much smaller than Kawa. It targets small prototyping and
+scripting projects rather than the larger, higher-performance targets
+of Kawa.
+
+llava is similar to Skij but couples the Skij-like Java dynamic method
+invocation implementation to the undefined variable handler making
+Java method calls look just like LISP procedure calls once an object
+is created via "new".
+
+;;; End of file.
+
+

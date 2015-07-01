@@ -1,0 +1,192 @@
+This is pdfTeX, Version 3.14159-13d (Web2C 7.3.1) (format=pdflatex 2001.8.27)  17 MAY 2005 13:57
+**example1
+(example1.tex[/import/pkg/tetex/texmf/pdftex/config/pdftex.cfg]
+LaTeX2e <1999/12/01> patch level 1
+Babel <v3.6Z> and hyphenation patterns for american, french, german, ngerman, n
+ohyphenation, loaded.
+(/import/pkg/tetex/texmf/tex/latex/base/article.cls
+Document Class: article 1999/09/10 v1.4a Standard LaTeX document class
+(/import/pkg/tetex/texmf/tex/latex/base/size12.clo
+File: size12.clo 1999/09/10 v1.4a Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (parallel.sty
+Package: parallel 2003/04/13, setting two texts parallel (me)
+
+`parallel': setting two texts parallel, (beta 4) 2003/04/13.
+\ParallelLWidth=\dimen103
+\ParallelRWidth=\dimen104
+\ParallelTextWidth=\dimen105
+\ParallelLeftMargin=\dimen106
+\ParallelUserMidSkip=\dimen107
+\ParallelMainMidSkip=\dimen108
+\ParallelLBox=\box26
+\ParallelRBox=\box27
+\ParallelBoxVar=\box28
+\ParallelLTok=\box29
+\ParallelRTok=\box30
+\ParallelBoolVar=\count87
+\ParallelBoolMid=\count88
+\ParallelWhichBox=\count89
+\ParallelMainMode=\count90
+\ParallelFNMode=\count91
+\ParallelLFNCounter=\count92
+\ParallelRFNCounter=\count93
+\ParallelMaxFN=\count94
+\ParallelFNNumMode=\count95
+) (example1.aux)
+\openout1 = `example1.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 30.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 30.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 30.
+
+Overfull \hbox (8.23618pt too wide) in paragraph at lines 30--35
+[]\OT1/cmr/m/n/12 This is a sam-ple L[]T[]X-file for the \OT1/cmtt/m/n/12 Paral
+lel\OT1/cmr/m/n/12 -environment.
+ []
+
+
+Overfull \hbox (5.33527pt too wide) in paragraph at lines 30--35
+\OT1/cmr/m/n/12 It is type-set-ted with []\OT1/cmtt/m/n/12 \linespread{1.9}\OT1
+/cmr/m/n/12 , []\OT1/cmtt/m/n/12 \textheight15cm\OT1/cmr/m/n/12 ,
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 37.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 37.
+
+Overfull \hbox (0.41429pt too wide) in paragraph at lines 41--43
+\OT1/cmr/m/n/12 to-ria dis-tinguenda sunt.
+ []
+
+
+Underfull \hbox (badness 7291) in paragraph at lines 44--47
+\OT1/cmr/m/n/12 Gnaden-hil-fen selbst un-ter-
+ []
+
+
+Underfull \hbox (badness 5133) in paragraph at lines 49--56
+[]\OT1/cmr/m/n/12 Primo itaque ho-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--56
+\OT1/cmr/m/n/12 tus ac-ceperat posse
+ []
+
+
+Overfull \hbox (8.57393pt too wide) in paragraph at lines 49--56
+\OT1/cmr/m/n/12 mori, posse ip-sum bonum
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--56
+\OT1/cmr/m/n/12 adi-u-to-rium per-se-ver-
+ []
+
+
+Underfull \hbox (badness 7415) in paragraph at lines 49--56
+\OT1/cmr/m/n/12 ut per-se-ver-aret, sed
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--56
+\OT1/cmr/m/n/12 ar-bi-trium per-se-ver-are
+ []
+
+
+Underfull \hbox (badness 5217) in paragraph at lines 49--56
+\OT1/cmr/m/n/12 non pos-set. Nunc
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--68
+[]\OT1/cmr/m/n/12 Dem er-sten Men-schen,
+ []
+
+
+Underfull \hbox (badness 4156) in paragraph at lines 57--68
+\OT1/cmr/m/n/12 nicht ab-zufallen, ist dem-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--68
+\OT1/cmr/m/n/12 rlichkeit ver-liehen wor-den,
+ []
+
+
+Underfull \hbox (badness 4940) in paragraph at lines 57--68
+\OT1/cmr/m/n/12 nicht jene, wo-durch seine
+ []
+
+
+Underfull \hbox (badness 7133) in paragraph at lines 57--68
+\OT1/cmr/m/n/12 das Re-ich Gottes vorher-
+ []
+
+
+Underfull \hbox (badness 4316) in paragraph at lines 57--68
+\OT1/cmr/m/n/12 bestimmt sind, nicht eine
+ []
+
+
+Overfull \hbox (7.54662pt too wide) in paragraph at lines 57--68
+\OT1/cmr/m/n/12 solche Gnade der Be-har-rlichkeit
+ []
+
+
+Underfull \hbox (badness 3460) in paragraph at lines 57--68
+\OT1/cmr/m/n/12 gegeben, son-dern eine de-
+ []
+
+
+Overfull \hbox (2.50499pt too wide) in paragraph at lines 57--68
+\OT1/cmr/m/n/12 nur unf^^?ahig zur Be-har-rlichkeit,
+ []
+
+
+Overfull \hbox (1.29944pt too wide) in paragraph at lines 57--68
+\OT1/cmr/m/n/12 son-dern sind auch durch dieses
+ []
+
+[1
+
+[/import/pkg/tetex/texmf/dvips/config/pdftex.map]] [2] [3] (example1.aux) ) 
+Here is how much of TeX's memory you used:
+ 275 strings out of 10631
+ 3001 string characters out of 68573
+ 53080 words of memory out of 263001
+ 3305 multiletter control sequences out of 10000+0
+ 6545 words of font info for 24 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 1000
+ 23i,8n,19p,131b,238s stack positions out of 300i,100n,500p,50000b,4000s
+<cmr
+10.pfb><cmr7.pfb><cmtt12.pfb><cmr8.pfb><cmr12.pfb>
+Output written on example1.pdf (3 pages, 42036 bytes).

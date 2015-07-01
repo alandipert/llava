@@ -1,0 +1,25 @@
+\begin{figure}[htb]
+\small
+\begin{verbatim}
+if alreadyImportedInPackage?
+    loadLlavaFileIfTouched
+else if existsInPackageNameMap
+    addToCurrentPackageImportList
+    loadLlavaFileIfTouched
+else if java class exists
+    import class
+    classAlreadyImported = true
+    addToCurrentPackageImportList
+else
+    for path in classpath
+        if path/file exists
+            load file unless being loaded
+            addToCurrentPackageImportList
+            break
+    if file not found in classpath
+        throw FileNotFoundException
+\end{verbatim}
+\normalsize
+\caption{import algorithm}
+\label{import-alrorithm}
+\end{figure}

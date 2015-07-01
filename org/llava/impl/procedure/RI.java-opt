@@ -11,7 +11,7 @@ or send a letter to
 
 /**
  * Created       : 2000 Jan 26 (Wed) 17:08:19 by Harold Carr.
- * Last Modified : 2005 May 24 (Tue) 15:34:54 by Harold Carr.
+ * Last Modified : 2005 May 20 (Fri) 13:38:18 by Harold Carr.
  */
 
 package org.llava.impl.procedure;
@@ -24,8 +24,13 @@ import java.util.Map;
 
 public class RI
 {
+    public static final Constructor NoSuchConstructor = 
+	ArrayList.class.getDeclaredConstructors()[0];
     public static final Method NoSuchMethod =
 	ArrayList.class.getDeclaredMethods()[0];
+    public static final Field NoSuchField =
+	ArrayList.class.getDeclaredFields()[0];
+    public static final Object ClassNotFound = new Object();
 
     //
     // Instance creation.
@@ -33,7 +38,7 @@ public class RI
 
     public static Object newInstance (String targetClassName, Object[] args)
 	throws
-	    ClassNotFoundException,
+	    //	    ClassNotFoundException,
 	    Throwable
     {
 	return newInstance(Class.forName(targetClassName), args);
@@ -54,7 +59,7 @@ public class RI
 				 Object targetObject,
 				 Object[] args) 
 	throws 
-	    //NoSuchMethodException, 
+	    //	    NoSuchMethodException, 
 	    Throwable 
     {
 	return invokeInternal(methodName,
@@ -67,8 +72,8 @@ public class RI
 				       String targetClassName,
 				       Object[] args) 
 	throws 
-	    ClassNotFoundException,
-	    NoSuchMethodException, 
+	    //	    ClassNotFoundException,
+	    //	    NoSuchMethodException, 
 	    Throwable 
     {
 	return invokeStatic(methodName, Class.forName(targetClassName), args);
@@ -78,7 +83,7 @@ public class RI
 				       Class targetClass,
 				       Object[] args) 
 	throws 
-	    NoSuchMethodException, 
+	    //	    NoSuchMethodException, 
 	    Throwable 
     {
 	return invokeInternal(methodName, targetClass, null, args); 
@@ -100,11 +105,17 @@ public class RI
 
     public static Object staticFieldRef (String fieldName, String className)
 	throws 
-	    ClassNotFoundException,
+	    //	    ClassNotFoundException,
 	    IllegalAccessException,
 	    NoSuchFieldException 
     {
-	return staticFieldRef(fieldName, Class.forName(className));
+	Class clazz = null;
+	try {
+	    clazz = Class.forName(className);
+	} catch (ClassNotFoundException e) {
+	    return ClassNotFound;
+	}
+	return staticFieldRef(fieldName, clazz);
     }
 
 
@@ -133,12 +144,18 @@ public class RI
 					 String className,
 					 Object value)
 	throws 
-	    ClassNotFoundException,
+	    //	    ClassNotFoundException,
 	    IllegalAccessException, 
 	    NoSuchFieldException 
     {
+	Class clazz = null;
+	try {
+	    clazz = Class.forName(className);
+	} catch (ClassNotFoundException e) {
+	    return ClassNotFound;
+	}
 	return staticFieldSet(fieldName,
-			      Class.forName(className),
+			      clazz,
 			      value);
     }
 
@@ -163,13 +180,14 @@ public class RI
     private static Object newInstanceInternal (Class targetClass,
 					       Object[] args) 
 	throws 
-	    NoSuchMethodException,
+	    //	    NoSuchMethodException,
 	    Throwable 
     {
 	Constructor constructor =findConstructor(targetClass,getClasses(args));
 
 	if (constructor == null) {
-	    throw new NoSuchMethodException(targetClass.getName());
+	    return NoSuchMethod;
+	    //throw new NoSuchMethodException(targetClass.getName());
 	}
 
 	try {
@@ -184,7 +202,7 @@ public class RI
 					  Object targetObject,
 					  Object[] args) 
 	throws 
-	    //NoSuchMethodException,
+	    //	    NoSuchMethodException,
 	    Throwable 
     {
 	Method method = findMethod(methodName, targetClass, getClasses(args));
@@ -205,7 +223,7 @@ public class RI
 						   Class targetClass, 
 						   Class[] argTypes) 
 	//	throws
-	//	    NoSuchMethodException
+	    //	    NoSuchMethodException
     {
 	Key key = Key.initReusableKey(methodName, targetClass, argTypes);
 	Method method = (Method) cachedMethods.get(key);
@@ -266,8 +284,8 @@ public class RI
 
     private static Constructor findConstructor (Class targetClass,
 						Class[] argTypes)
-	throws
-	    NoSuchMethodException
+	//	throws
+	//	    NoSuchMethodException
     {
 	List candidates = collectCandidateConstructors(targetClass,argTypes);
 
@@ -327,8 +345,8 @@ public class RI
     //
 
     private static Constructor mostSpecificConstructor (List constructors) 
-	throws
-	    NoSuchMethodException
+	//	throws
+	//	    NoSuchMethodException
     {
 	for (int i = 0; i < constructors.size(); i++) {
 	    for (int j = 0; j < constructors.size(); j++) {
@@ -347,7 +365,8 @@ public class RI
 	if (constructors.size() == 1) {
 	    return (Constructor)constructors.get(0);
 	}
-	throw new NoSuchMethodException("more than one most specific constructor");
+	//throw new NoSuchMethodException("more than one most specific constructor");
+	return NoSuchConstructor;
     }
 
     private static Method mostSpecificMethod (List methods) 
@@ -417,8 +436,8 @@ public class RI
 					    Object targetObject)
 					    
 	throws
-	    IllegalAccessException,
-	    NoSuchFieldException 
+	    //	    NoSuchFieldException,
+	    IllegalAccessException
     {
 	return findField(fieldName, targetClass).get(targetObject);
     }
@@ -428,16 +447,16 @@ public class RI
 					    Object targetObject,
 					    Object value)
 	throws
-	    IllegalAccessException, 
-	    NoSuchFieldException 
+	    //	    NoSuchFieldException,
+	    IllegalAccessException
     {
 	findField(fieldName, targetClass).set(targetObject, value); 
 	return value;
     }
 
     private static Field findField (String fieldName, Class targetClass)
-	throws
-	    NoSuchFieldException 
+	//	throws
+	//	    NoSuchFieldException 
     {
 	Field field;
 	try {
@@ -452,8 +471,8 @@ public class RI
     private static Field findFieldNonPublicAndSupers (String fieldName,
 						      Class targetClass)
 						      
-	throws
-	    NoSuchFieldException 
+	//	throws
+	//	    NoSuchFieldException 
     {
 	Field[] localFields = targetClass.getDeclaredFields();
 	for (int i = 0; i < localFields.length; i++) {
@@ -464,7 +483,8 @@ public class RI
 
 	Class superClass = targetClass.getSuperclass();
 	if (superClass == null) {
-	    throw new NoSuchFieldException(fieldName);
+	    //throw new NoSuchFieldException(fieldName);
+	    return NoSuchField;
 	}
 	return findField(fieldName, superClass);
     }
@@ -568,7 +588,7 @@ public class RI
 	if (cl == floatClass)     return FloatClass;
 	if (cl == doubleClass)    return DoubleClass;
 
-	throw new Error("DI.wrapPrim: unknown type" + cl);
+	throw new Error("RI.wrapPrim: unknown type" + cl);
     }
 
     //
@@ -616,7 +636,7 @@ public class RI
 	    doubleClass    = Double.TYPE;
 	    DoubleClass    = Class.forName("java.lang.Double");
 	} catch (ClassNotFoundException e) {
-	    System.err.println("DI (static initializer) - should not happen");
+	    System.err.println("RI (static initializer) - should not happen");
 	}
     }
 }

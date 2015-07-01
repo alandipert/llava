@@ -1,0 +1,17 @@
+The following files should stay checked out so they have writeable
+permissions when uploaded to the site mirror and to the site itself.
+
+co -l \
+   BUGS \
+   COPYRIGHT.txt \
+   ChangeLog \
+   GNUmakefile \
+   LICENSE.html \
+   LICENSE.txt \
+   LICENSE.xml \
+   TODO \
+   doc/index.html
+
+VERSION and VERSIONDATEONLY are generated during the release.
+
+;;; End of file.

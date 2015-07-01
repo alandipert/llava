@@ -1,0 +1,79 @@
+Date: Tue, 24 May 2005 21:14:28 -0700
+From: Ken Cavanaugh <Ken.Cavanaugh@Sun.COM>
+Subject: Re: your comments
+To: Harold.Carr@Sun.COM
+Cc: Ken.Cavanaugh@Sun.COM
+
+On Tue, 2005-05-24 at 19:27, harold carr wrote:
+> > Quick summary from the second call:
+> 
+> If you remember anything from the first call please send them too.
+> 
+> I can't believe I lost the edits - duh!
+> 
+> H
+> 
+> 
+
+Here it is:
+
+1. Section 1.1: "for interactively" -> "for interactivity"
+
+2. Section 1.3.2: Defining toLowerCase with toUpperCase is confusing:
+   better if you can take advantage of ambiguity in a method name
+   to show an unexpected result.
+
+3. Section 2: try, throw, synchronized (second comma is missing)
+
+4. Section 2.1: reword "numerous small designs"
+
+5. End of section 2.1.3 (last paragraph): "Note that llava does not 
+   support modifiers not types..." needs fixing.
+
+I think that's all of my comments.
+
+Ken.
+
+------------------------------------------------------------------------------
+
+Date: Tue, 24 May 2005 18:04:53 -0700
+From: Ken Cavanaugh <Ken.Cavanaugh@Sun.COM>
+Subject: Re: your comments
+To: Harold Carr <Harold.Carr@Sun.COM>
+Cc: Ken.Cavanaugh@Sun.COM
+
+
+On Tue, 2005-05-24 at 16:58, Harold Carr wrote:
+> I hope you have them written down.  I lost some edits...
+> 
+> Could you send me your comments?
+> THANKS!
+> H
+
+I wrote them down on the hardcopy.
+
+Quick summary from the second call:
+
+1. 2.1.4 reference to section with try/catch/finally example
+2. 2.1.6 discussion about how to represent anonymous inner classes
+3. 3.0.8 (Do you want "0" in the section number?) (define (a p) ... )
+   uses x as variable
+4. 3.0.8.3 Import should mention public constructor, all fields,
+   static methods.  Should re-emphasize that RI handles virtual methods.
+   (Also title: "Importing a Java classes")
+5. Section 4 "Figure 4 show tak execution times...". Next sentence is
+   mangled.
+6. Section 5: "long ways to go" reword
+7. Section 5: remove Jena RDF references, perhaps remove entire
+   paragraph on usage of llava.
+8. Section 5: discussed important of caching java.lang.reflect.Method
+   objects, avoiding throws, custom/cached representation of
+   Class information.
+
+That's all I have at the moment.  I'll be out to dinner shortly,
+but I'll check my email later.
+
+Ken.
+
+
+;;; End of file.

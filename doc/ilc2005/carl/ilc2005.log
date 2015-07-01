@@ -1,0 +1,379 @@
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2005.4.29)  7 JUN 2005 14:57
+entering extended mode
+**ilc2005.tex
+(./ilc2005.tex
+LaTeX2e <2003/12/01>
+Babel <v3.8d> and hyphenation patterns for american, french, german, ngerman, b
+ahasa, basque, bulgarian, catalan, croatian, czech, danish, dutch, esperanto, e
+stonian, finnish, greek, icelandic, irish, italian, latin, magyar, norsk, polis
+h, portuges, romanian, russian, serbian, slovak, slovene, spanish, swedish, tur
+kish, ukrainian, nohyphenation, loaded.
+(./acm_proc_article-sp.cls
+(/usr/local/share/texmf-dist/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+
+(/usr/local/share/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/share/texmf-dist/tex/latex/graphics/graphics.cfg
+File: graphics.cfg 2005/02/03 v1.3 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: dvips.def on input line 80.
+
+(/usr/local/share/texmf-dist/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen102
+\Gin@req@width=\dimen103
+)
+\epsfxsize=\dimen104
+\epsfysize=\dimen105
+)
+(/usr/local/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2002/01/22 v2.2d
+
+(/usr/local/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2001/10/25 v2.2f
+\@emptytoks=\toks15
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
+))
+(/usr/local/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip41
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/share/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/share/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks16
+\ex@=\dimen106
+))
+(/usr/local/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen107
+)
+(/usr/local/share/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count79
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count80
+\leftroot@=\count81
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count82
+\DOTSCASE@=\count83
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen108
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count84
+\c@MaxMatrixCols=\count85
+\dotsspace@=\muskip10
+\c@parentequation=\count86
+\dspbrk@lvl=\count87
+\tag@help=\toks17
+\row@=\count88
+\column@=\count89
+\maxfields@=\count90
+\andhelp@=\toks18
+\eqnshift@=\dimen109
+\alignsep@=\dimen110
+\tagshift@=\dimen111
+\tagwidth@=\dimen112
+\totwidth@=\dimen113
+\lineht@=\dimen114
+\@envbody=\toks19
+\multlinegap=\skip42
+\multlinetaggap=\skip43
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+Document Class 'acm_proc_article-sp' <15th. October '04>. Modified by G.K.M. To
+bin
+Based in part upon document Style `acmconf' <22 May 89>. Hacked 4/91 by
+shivers@cs.cmu.edu, 4/93 by theobald@cs.mcgill.ca
+Excerpts were taken from (Journal Style) 'esub2acm.cls'.
+****** Bugs/comments/suggestions to Gerry Murray -- murray@hq.acm.org ******
+\footheight=\dimen115
+\@maxsep=\dimen116
+\@dblmaxsep=\dimen117
+\aucount=\count91
+\originalaucount=\count92
+\auwidth=\dimen118
+\auskip=\dimen119
+\auskipcount=\count93
+\auskip=\dimen120
+\allauboxes=\dimen121
+\addauthors=\toks21
+\addauflag=\count94
+\subtitletext=\toks22
+\savesection=\count95
+\sectioncntr=\count96
+\c@figure=\count97
+\c@table=\count98
+\titleboxnotes=\toks23
+\titleboxnoteflag=\count99
+Document Class: acm_proc_article-sp 2004/15/10 - V2.7SP - based on esub2acm.sty
+ <23 April 96>
+(/usr/local/share/texmf-dist/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+\@acmtitlebox=\box28
+\titlenotecount=\count100
+\tntoks=\toks24
+\tntokstwo=\toks25
+\tntoksthree=\toks26
+\tntoksfour=\toks27
+\tntoksfive=\toks28
+\catcount=\count101
+\copyrightnotice=\toks29
+\conf=\toks30
+\confinfo=\toks31
+\c@part=\count102
+\c@section=\count103
+\c@subsection=\count104
+\c@subsubsection=\count105
+\c@paragraph=\count106
+
+Using 'Abbrev' bibliography style
+\bibindent=\dimen122
+\colcntr=\count107
+\savebox=\box29
+\copyrtyr=\toks32
+\acmcopyr=\toks33
+\boilerplate=\toks34
+\copyrightetc=\toks35
+) (./parallel.sty
+Package: parallel 2003/04/13, setting two texts parallel (me)
+ `parallel': setting two texts parallel, (beta 4) 2003/04/13.
+\ParallelLWidth=\dimen123
+\ParallelRWidth=\dimen124
+\ParallelTextWidth=\dimen125
+\ParallelLeftMargin=\dimen126
+\ParallelUserMidSkip=\dimen127
+\ParallelMainMidSkip=\dimen128
+\ParallelLBox=\box30
+\ParallelRBox=\box31
+\ParallelBoxVar=\box32
+\ParallelLTok=\box33
+\ParallelRTok=\box34
+\ParallelBoolVar=\count108
+\ParallelBoolMid=\count109
+\ParallelWhichBox=\count110
+\ParallelMainMode=\count111
+\ParallelFNMode=\count112
+\ParallelLFNCounter=\count113
+\ParallelRFNCounter=\count114
+\ParallelMaxFN=\count115
+\ParallelFNNumMode=\count116
+) (./ilc2005.aux)
+\openout1 = `ilc2005.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Try loading font information for U+msa on input line 51.
+ (/usr/local/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 51.
+
+(/usr/local/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 51.
+
+(/usr/local/share/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+Overfull \hbox (15.17601pt too wide) in paragraph at lines 130--170
+ [][] 
+ []
+
+[1
+
+
+] [2]
+Overfull \hbox (15.75055pt too wide) in paragraph at lines 451--451
+[]    \OT1/cmtt/m/n/9 protected List history = new LinkedList();[] 
+ []
+
+
+Overfull \hbox (11.0256pt too wide) in paragraph at lines 451--451
+[]        \OT1/cmtt/m/n/9 System.out.println("Moved: " + this);[] 
+ []
+
+
+Overfull \hbox (25.20044pt too wide) in paragraph at lines 451--451
+[]    \OT1/cmtt/m/n/9 public List getHistory() { return history; }[] 
+ []
+
+
+Overfull \hbox (39.37527pt too wide) in paragraph at lines 451--451
+[]        \OT1/cmtt/m/n/9 return getName() + " x: " + x + " y: " + y;[] 
+ []
+
+
+Overfull \hbox (6.30066pt too wide) in paragraph at lines 474--474
+[]  \OT1/cmtt/m/n/9 (protected List history (new 'LinkedList))[] 
+ []
+
+
+Overfull \hbox (11.0256pt too wide) in paragraph at lines 474--474
+[]    \OT1/cmtt/m/n/9 (println (System.out) (+ "Moved: " this))[] 
+ []
+
+
+Overfull \hbox (29.92538pt too wide) in paragraph at lines 578--578
+[]    \OT1/cmtt/m/n/9 protected void move(int dx, int dy, int dz) {[] 
+ []
+
+
+Overfull \hbox (11.0256pt too wide) in paragraph at lines 578--578
+[]        \OT1/cmtt/m/n/9 return super.toString() + " z: " + z;[] 
+ []
+
+
+LaTeX Warning: Float too large for page by 79.25014pt on input line 595.
+
+[3] [4] [5]
+Overfull \hbox (4.42801pt too wide) in paragraph at lines 849--854
+\OT1/cmr/m/n/9 Local vari-ables and blocks are in-tro-duced with \OT1/cmtt/m/n/
+9 let \OT1/cmr/m/n/9 and \OT1/cmtt/m/n/9 begin\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (7.76744pt too wide) in paragraph at lines 895--898
+\OT1/cmr/m/n/9 sys-tem, the \OT1/cmtt/m/n/9 package/import \OT1/cmr/m/n/9 sys-t
+em and the com-piler/runtime
+ []
+
+[6]
+File: `bmeps NamespaceABC.jpg Graphic file (type eps)
+ <`bmeps NamespaceABC.jpg> [7]
+File: `bmeps NamespaceABCOrgLLava.jpg Graphic file (type eps)
+ <`bmeps NamespaceABCOrgLLava.jpg> [8]
+File: `bmeps ImportABC.jpg Graphic file (type eps)
+
+<`bmeps ImportABC.jpg>
+Overfull \hbox (3.06966pt too wide) in paragraph at lines 1254--1258
+\OT1/cmtt/m/n/9 if existsInPackageNameMap\OT1/cmr/m/n/9 : If a pack-age X im-po
+rts a pack-
+ []
+
+[9]
+Overfull \hbox (43.8436pt too wide) in paragraph at lines 1489--1489
+[]        \OT1/cmtt/m/n/7 F.rce("(import org.openhc.llavademo.pb.PointBase-LLAV
+A)");[] 
+ []
+
+
+Overfull \hbox (6.65564pt too wide) in paragraph at lines 1489--1489
+[]    \OT1/cmtt/m/n/7 protected java.util.List history = new LinkedList();[] 
+ []
+
+
+Overfull \hbox (66.15637pt too wide) in paragraph at lines 1489--1489
+[]        \OT1/cmtt/m/n/7 Pair app = List.list(F.newSymbol("PointBase-LLAVA-get
+X"), this);[] 
+ []
+
+
+Overfull \hbox (62.43758pt too wide) in paragraph at lines 1489--1489
+[]        \OT1/cmtt/m/n/7 Pair app = List.list(F.newSymbol("PointBase-LLAVA-mov
+e"), this,[] 
+ []
+
+
+Overfull \hbox (32.68721pt too wide) in paragraph at lines 1489--1489
+[]                             \OT1/cmtt/m/n/7 new Integer(dx), new Integer(dy)
+);[] 
+ []
+
+
+Overfull \hbox (69.87517pt too wide) in paragraph at lines 1489--1489
+[]        \OT1/cmtt/m/n/7 Pair app = List.list(F.newSymbol("PointBase-LLAVA-mov
+ed"), this);[] 
+ []
+
+
+Overfull \hbox (1.45737pt too wide) in paragraph at lines 1531--1536
+[]\OT1/cmr/m/n/9 When call-ing meth-ods in the gen-er-ated code, con-trol is tr
+ans-
+ []
+
+
+Overfull \hbox (3.00859pt too wide) in paragraph at lines 1551--1555
+[]\OT1/cmr/m/n/9 The JRE was started with \OT1/cmtt/m/n/9 -XX:CompileThreshold=
+2 \OT1/cmr/m/n/9 to cause
+ []
+
+File: `bmeps tak.jpg Graphic file (type eps)
+<`bmeps tak.jpg> [10]
+File: `bmeps takRiLambda.jpg Graphic file (type eps)
+ <`bmeps takRiLambda.jpg>
+Overfull \hbox (2.27098pt too wide) in paragraph at lines 1594--1600
+[]\OT1/cmr/m/n/9 Figure 7[] show Kawa, Jscheme and \OT1/cmtt/m/n/9 llava \OT1/c
+mr/m/n/9 times for the \OT1/cmtt/m/n/9 fprint
+ []
+
+
+Underfull \vbox (badness 2653) has occurred while \output is active []
+
+File: `bmeps fprintRead.jpg Graphic file (type eps)
+
+<`bmeps fprintRead.jpg> [11]
+Overfull \hbox (2.86697pt too wide) in paragraph at lines 1647--1650
+[]\OT1/cmr/m/n/9 Despite the im-ple-men-ta-tion's short-com-ings, the idea of \
+OT1/cmtt/m/n/9 llava
+ []
+
+
+Overfull \hbox (7.87952pt too wide) in paragraph at lines 1655--1660
+\OT1/cmr/m/n/9 An-der-son and Tim Hickey for their im-ple-men-ta-tions of Schem
+e
+ []
+
+[12] (./ilc2005.aux) ) 
+Here is how much of TeX's memory you used:
+ 1663 strings out of 94501
+ 19008 string characters out of 1174996
+ 88256 words of memory out of 1000000
+ 4815 multiletter control sequences out of 10000+100000
+ 21448 words of font info for 64 fonts, out of 500000 for 2000
+ 580 hyphenation exceptions out of 1000
+ 39i,10n,26p,246b,325s stack positions out of 1500i,500n,5000p,200000b,5000s
+
+Output written on ilc2005.dvi (12 pages, 71788 bytes).

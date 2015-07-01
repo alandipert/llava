@@ -1,0 +1,245 @@
+(loop 1)
+
+CodeApplication
+ engine.run(procCode, nullFrame)
+  this.code&frame = code&frame
+  result = procCode.run(nullFrame, this)
+   ;; CodeReferenceTopLevel.run
+   return frame.get("loop") 
+  return result
+ engine.run(argsCode, nullFrame)
+  this.code&frame = code&frame
+  result = argsCode.run(nullFrame, this)
+   return 1
+  return result
+ LlambdaImpl.apply(1, engine)
+  return engine.tailCode(code, extend env)
+           this.code&frame = code&frame; return this
+ code.run(frame, engine)
+  ;; CodeIf
+  engine.run(testCode, frame) 
+   return false
+  return engine.tailCall(elseCode, frame) 
+           this.code&frame = code&frame; return this
+ *** instead of recursion - just loop in same run call
+ CodeApplication 
+
+
+
+==============================================================================
+llava is Java in Lisp's (lack of) syntax (rather than a Lisp or Scheme
+written in Java).  llava does not contain special syntax to call Java
+methods nor does it define an orthogonal set of types (such as Scheme
+strings or Common Lisp arrays).  Instead, llava tries to be Java
+expressed in typical prefix list syntax with all data instances of
+Java classes.  llava does add additional types (such as Pair,
+Procedure, Symbol and Syntax) to make enable one to work with lists
+and to define procedures and macros.
+
+- package/import system
+
+- Methods on Java objects take (optionally controlled) precedence over
+  llava procedures (i.e, lambdas)
+
+- Everything defined via Interfaces with a pluggable factory to
+  supply implementations.
+
+- Reflective-Invocation Interface (RII).
+
+- compilation strategy and Engine-based runtime.
+
+------------------------------------------------------------------------------
+NEW
+
+JAVA
+
+import java.util.Hashtable;
+Hashtable ht = new Hashtable();
+
+LLAVA
+
+(import java.util.Hashtable)
+(set! ht (new 'Hashtable))
+{}
+
+JSCHEME
+
+(import "java.util.Hashtable")
+(set! ht (Hashtable.))
+
+ABCL
+
+(setq ht (jnew (jconstructor "java.util.Hashtable")))
+#<JAVAOBJECT java.util.Hashtable @ #xbe203a>
+
+------------------------------------------------------------------------------
+VIRTUAL METHOD INVOCATION
+
+LLAVA
+
+(put ht "three" 3)
+null
+(get ht "three")
+3
+
+JSCHEME
+
+(.put ht "three" 3)
+#null
+(.get ht "three")
+3
+
+ABCL
+
+(jcall (jmethod "java.util.Hashtable" 
+		"put" "java.lang.Object" "java.lang.Object") 
+       ht
+       (jnew (jconstructor "java.lang.String" "java.lang.String") "three")
+       (jnew (jconstructor "java.lang.Integer" "java.lang.String") "3"))
+
+(jcall (jmethod "java.util.Hashtable" 
+		"get" "java.lang.Object")
+       ht
+       (jnew (jconstructor "java.lang.String" "java.lang.String") "three"))
+
+------------------------------------------------------------------------------
+STATIC METHOD INVOCATION
+
+LLAVA
+
+(import java.util.Calendar)
+(Calendar.getInstance)
+
+(import java.text.DateFormat)
+(set! df (DateFormat.getDateInstance))
+java.text.SimpleDateFormat@ce9bf0a5
+
+JSCHEME
+
+(import "java.text.DateFormat")
+(set! df (DateFormat.getDateInstance))
+
+ABCL
+
+(jstatic (jmethod "java.text.DateFormat" "getDateInstance") nil)
+
+------------------------------------------------------------------------------
+VIRTUAL FIELD ACCESS
+
+LLAVA
+
+(import org.omg.CORBA.IntHolder)
+(set! ih (new 'IntHolder))
+(value! ih 3)
+(value ih)
+
+JSCHEME
+
+(import "org.omg.CORBA.IntHolder")
+(set! ih (IntHolder.))
+(.value$ ih 3)
+(.value$ ih)
+
+ABCL
+
+*****
+
+------------------------------------------------------------------------------
+STATIC FIELD ACCESS
+
+LLAVA
+
+(import java.io.File)
+(File.pathSeparator)
+
+JSCHEME
+
+(import "java.io.File")
+File.pathSeparator$
+
+ABCL
+
+NO:*****
+(jstatic "pathSeparator" "java.io.File")
+(jstatic "value" (jclass "org.omg.CORBA.IntHolder") ih)
+
+
+
+==============================================================================
+Data Type interoperability
+
+Boolean
+Character/String
+Byte/Short/Integer/Long
+Float/Double
+
+JAVA
+
+boolean: 
+    syntax: true false
+    type: boolean or java.lang.Boolean
+
+char/String
+    syntax: 'c' "Foo"
+    type: char/java.lang.Character and java.lang.String
+
+int/double
+    syntax: 3 4.5
+    type: int java.lang.Integer double java.lang.Double
+
+LLAVA
+
+boolean: 
+    syntax: true false
+    type: java.lang.Boolean
+
+char/String
+    syntax: #\c "Foo"
+    type: java.lang.Character and java.lang.String
+
+int/double
+    syntax: 3 4.5
+    type: int java.lang.Integer double java.lang.Double
+
+JSCHEME
+
+boolean: 
+    syntax: #t #f
+    type: java.lang.Boolean
+
+char/String 
+    syntax: #\c (or #'c') "Foo"
+    type: java.lang.Character and java.lang.String
+
+int/double
+    syntax: 3 4.5
+    type: int java.lang.Integer double java.lang.Double
+
+ABCL
+
+T and NIL
+
+(jcall (jmethod "java.lang.Object" "equals" "java.lang.Object")
+       (jnew (jconstructor "java.lang.Integer" "java.lang.String") "3")
+       (jnew (jconstructor "java.lang.Integer" "java.lang.String") "4"))
+
+(jcall (jmethod "java.lang.Object" "equals" "java.lang.Object")
+       (jnew (jconstructor "java.lang.Integer" "java.lang.String") "3")
+       (jnew (jconstructor "java.lang.Integer" "java.lang.String") "3"))
+
+
+;;;;
+
+STRING 
+
+(jnew (jconstructor "java.lang.String" "java.lang.String") "3")
+not a "3"
+
+INT
+
+(jnew (jconstructor "java.lang.Integer" "java.lang.String") "3")
+not a 3
+
+;;; End of file.
+
+

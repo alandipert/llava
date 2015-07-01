@@ -1,19 +1,24 @@
-% SIG-ALTERNATE.CLS - VERSION 1.6
-% "COMPATIBLE" WITH THE "ACM_PROC_ARTICLE-SP.CLS" V2.6SP
-% Gerald Murray October 2nd. 2002
+% ACM_PROC_ARTICLE-SP.CLS - VERSION 2.7SP
+% COMPATIBLE WITH THE "ACM_PROC_ARTICLE.CLS" V2.5
+% Gerald Murray October 15th., 2004
 %
 % ---- Start of 'updates'  ----
 %
 % Allowance made to switch default fonts between those systems using
 % METAFONT and those using 'Type 1' or 'Truetype' fonts.
-% See LINE NUMBER 252 for details.
+% See LINE NUMBER 266 for details.
 % Also provided for enumerated/annotated Corollaries 'surrounded' by
-% enumerated Theorems (line 841).
+% enumerated Theorems (line 838).
 % Gerry November 11th. 1999
 %
 % Made the Permission Statement / Conference Info / Copyright Info
 % 'user definable' in the source .tex file OR automatic if
 % not specified.
+% This 'sp' version does NOT produce the permission block.
+%
+% Major change in January 2000 was to include a "blank line" in between
+% new paragraphs. This involved major changes to the, then, acmproc-sp.cls  1.0SP
+% file, precipitating a 'new' name: "acm_proc_article-sp.cls" V2.01SP.
 %
 % Georgia fixed bug in sub-sub-section numbering in paragraphs (July 29th. 2002)
 % JS/GM fix to vertical spacing before Proofs (July 30th. 2002)
@@ -22,30 +27,27 @@
 %
 % ---- End of 'updates' ----
 %
-\def\fileversion{v1.6}          % for ACM's tracking purposes
-\def\filedate{October 2, 2002}    % Gerry Murray's tracking data
-\def\docdate {Wednesday 2nd. October 2002} % Gerry Murray (with deltas to doc}
+\def\fileversion{V2.7SP}          % for ACM's tracking purposes
+\def\filedate{October 15, 2004}    % Gerry Murray's tracking data
+\def\docdate {Friday 15th. October 2004} % Gerry Murray (with deltas to doc}
 \usepackage{epsfig}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 %
-% SIG-ALTERNATE DOCUMENT STYLE
+% ACM_PROC_ARTICLE-SP  DOCUMENT STYLE
 % G.K.M. Tobin August-October 1999
 %    adapted from ARTICLE document style by Ken Traub, Olin Shivers
 %    also using elements of esub2acm.cls
-% HEAVILY MODIFIED, SUBSEQUENTLY, BY GERRY MURRAY 2000
+% LATEST REVISION V2.7SP - OCTOBER 2004
 % ARTICLE DOCUMENT STYLE -- Released 16 March 1988
 %    for LaTeX version 2.09
 % Copyright (C) 1988 by Leslie Lamport
 %
 %
-%%% sig-alternate.cls is an 'ALTERNATE' document style for producing
-%%% two-column camera-ready pages for ACM conferences.
-%%% THIS FILE DOES NOT STRICTLY ADHERE TO THE SIGS (BOARD-ENDORSED)
-%%% PROCEEDINGS STYLE. It has been designed to produce a 'tighter'
-%%% paper in response to concerns over page budgets.
-%%% The main features of this style are:
+%%% ACM_PROC_ARTICLE-SP is a document style for producing two-column camera-ready pages for
+%%% ACM conferences, according to ACM specifications.  The main features of
+%%% this style are:
 %%%
 %%% 1)  Two columns.
 %%% 2)  Side and top margins of 4.5pc, bottom margin of 6pc, column gutter of
@@ -69,7 +71,7 @@
 %%%
 %
 %%% Copyright Space:
-%%% This style automatically reserves 1" blank space at the bottom of page 1/
+%%% This style automatically leaves 1" blank space at the bottom of page 1/
 %%% column 1.  This space can optionally be filled with some text using the
 %%% \toappear{...} command.  If used, this command must be BEFORE the \maketitle
 %%% command.  If this command is defined AND [preprint] is on, then the
@@ -90,14 +92,14 @@
 %%% You may turn this hackery off via the -e option:
 %%%     dvips -e 0 foo.dvi >foo.ps
 %%%
-\typeout{Document Class 'sig-alternate' <2nd. October '02>.  Modified by G.K.M. Tobin/Gerry Murray}
+\typeout{Document Class 'acm_proc_article-sp' <15th. October '04>.  Modified by G.K.M. Tobin}
 \typeout{Based in part upon document Style `acmconf' <22 May 89>. Hacked 4/91 by}
 \typeout{shivers@cs.cmu.edu, 4/93 by theobald@cs.mcgill.ca}
 \typeout{Excerpts were taken from (Journal Style) 'esub2acm.cls'.}
-\typeout{****** Bugs/comments/suggestions/technicalities to Gerry Murray -- murray@hq.acm.org ******}
-\typeout{Questions on the style, SIGS policies, etc. to Adrienne Griscti griscti@acm.org}
-\oddsidemargin 2.5pc
-\evensidemargin 2.5pc
+\typeout{****** Bugs/comments/suggestions  to Gerry Murray -- murray@hq.acm.org ******}
+
+\oddsidemargin 4.5pc
+\evensidemargin 4.5pc
 \advance\oddsidemargin by -1in  % Correct for LaTeX gratuitousness
 \advance\evensidemargin by -1in % Correct for LaTeX gratuitousness
 \marginparwidth 0pt             % Margin pars are not allowed.
@@ -116,6 +118,7 @@
 \@ifundefined{footheight}{\newdimen\footheight}{}% this is for LaTeX2e
 \footheight 12pt                % Height of box containing running foot.
 
+
 %% Must redefine the top margin so there's room for headers and
 %% page numbers if you are using the preprint option. Footers
 %% are OK as is. Olin.
@@ -123,10 +126,8 @@
 \headheight 12pt                % Height of box containing running head.
 \headsep 25pt                   % Space between running head and text.
 
-%\textheight 666pt       % 9 1/4 column height
-%\textheight 716pt
-\textheight 736pt
-\textwidth 45pc         % Width of text line.
+\textheight 666pt       % 9 1/4 column height
+\textwidth 42pc         % Width of text line.
                         % For two-column mode:
 \columnsep 2pc          %    Space between columns
 \columnseprule 0pt      %    Width of rule between columns.
@@ -168,8 +169,12 @@
 \marginparpush 5pt       % Minimum vertical separation between two marginal
                          % notes.
 
-\parskip 0pt plus 1pt            % Extra vertical space between paragraphs.
-\parindent 9pt  % GM July 2000 / was 0pt - width of paragraph indentation.
+\parskip 0pt                % Extra vertical space between paragraphs.
+                    % Set to 0pt outside sections, to keep section heads
+                    % uniformly spaced.  The value of parskip is set
+                    % to leading value _within_ sections.
+                    % 12 Jan 2000 gkmt
+\parindent 0pt                % Width of paragraph indentation.
 \partopsep 2pt plus 1pt minus 1pt% Extra vertical space, in addition to
                                  % \parskip and \topsep, added when user
                                  % leaves blank line before environment.
@@ -311,7 +316,6 @@
 % +++++++++++++++++++++++++++++++++++++++++++++
 % -- End of block B --
 
-
 \def\email#1{{{\eaddfnt{\vskip 4pt#1}}}}
 
 \def\addauthorsection{\ifnum\originalaucount>3
@@ -329,6 +333,7 @@
 \setcounter{section}{0}
  \setcounter{subsection}{0}
  \def\thesection{\Alph{section}} }
+
 
 \leftmargini 22.5pt
 \leftmarginii 19.8pt    % > \labelsep + width of '(m)'
@@ -411,7 +416,7 @@
 \def\theequation{\arabic{equation}}
 
 \arraycolsep 4.5pt   % Half the space between columns in an array environment.
-\tabcolsep 5.4pt    % Half the space between columns in a tabular environment.
+\tabcolsep 5.4pt     % Half the space between columns in a tabular environment.
 \arrayrulewidth .4pt % Width of rules in array and tabular environment.
 \doublerulesep 1.8pt % Space between adjacent rules in array or tabular env.
 
@@ -453,7 +458,7 @@
    \addvspace{1.0em plus 1pt}   % space above toc entry
    \@tempdima 1.5em             % width of box holding section number
    \begingroup
-    \parindent  \z@ \rightskip \@pnumwidth
+     \parindent \z@ \rightskip \@pnumwidth
      \parfillskip -\@pnumwidth
      \bf                        % Boldface.
      \leavevmode                % TeX command to enter horizontal mode.
@@ -503,7 +508,6 @@
 \def\dbltopfraction{.7}
 \def\dblfloatpagefraction{.5}
 
-%
 \long\def\@makecaption#1#2{
    \vskip \baselineskip
    \setbox\@tempboxa\hbox{\textbf{#1: #2}}
@@ -511,17 +515,6 @@
        \textbf{#1: #2}\par               %   THEN set as ordinary paragraph.
      \else                      %   ELSE  center.
        \hbox to\hsize{\hfil\box\@tempboxa\hfil}\par
-   \fi}
-
-%
-
-\long\def\@makecaption#1#2{
-   \vskip 10pt
-   \setbox\@tempboxa\hbox{\textbf{#1: #2}}
-   \ifdim \wd\@tempboxa >\hsize % IF longer than one line:
-       \textbf{#1: #2}\par                %   THEN set as ordinary paragraph.
-     \else                      %   ELSE  center.
-       \hbox to\hsize{\hfil\box\@tempboxa\hfil}
    \fi}
 
 \@ifundefined{figure}{\newcounter {figure}} % this is for LaTeX2e
@@ -560,8 +553,9 @@
  \setcounter{footnote}{0}
  \let\maketitle\relax
  \let\@maketitle\relax
- \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\gdef\@subtitle{}\let\thanks\relax}
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\gdef\@subtitle{}\let\thanks\relax
 % \@copyrightspace
+}
 
 %% CHANGES ON NEXT LINES
 \newif\if@ll % to record which version of LaTeX is in use
@@ -573,7 +567,7 @@
 
 \if@ll
   \NeedsTeXFormat{LaTeX2e}
-  \ProvidesClass{acm-final/sig-alternate-modified} [2002/02/10 - V1.6 - based on acmproc.cls V1.3 <Nov. 30 '99>]
+  \ProvidesClass{acm_proc_article-sp} [2004/15/10 - V2.7SP - based on esub2acm.sty <23 April 96>]
   \RequirePackage{latexsym}% QUERY: are these two really needed?
   \let\dooptions\ProcessOptions
 \else
@@ -750,7 +744,7 @@
    \color@endgroup} %g}
 \fi
 \setcounter{footnote}{0}
-\section*{ABSTRACT}\normalsize%\ninept
+\section*{ABSTRACT}\normalsize %\the\parskip \the\baselineskip%\ninept
 }
 
 \def\endabstract{\if@twocolumn\else\endquotation\fi}
@@ -761,11 +755,14 @@
 \quotation
 \fi}
 
-\def\terms{\if@twocolumn
+% I've pulled the check for 2 cols, since proceedings are _always_
+% two-column  11 Jan 2000 gkmt
+\def\terms{%\if@twocolumn
 \section*{General Terms}
-\else \small
-\quotation
-\fi}
+%\else \small
+%\quotation\the\parskip
+%\fi}
+}
 
 % -- Classification needs to be a bit smart due to optionals - Gerry/Georgia November 2nd. 1999
 \newcount\catcount
@@ -831,7 +828,6 @@
   \space\number\day, \number\year}
 
 \def\@begintheorem#1#2{%
-    \parskip 0pt % GM July 2000 (for tighter spacing)
     \trivlist
     \item[%
         \hskip 10\p@
@@ -841,7 +837,6 @@
     \it
 }
 \def\@opargbegintheorem#1#2#3{%
-    \parskip 0pt % GM July 2000 (for tighter spacing)
     \trivlist
     \item[%
         \hskip 10\p@
@@ -951,6 +946,7 @@
 \def\thesubsection{\thesection.\arabic{subsection}}
 \def\thesubsubsection{\thesubsection.\arabic{subsubsection}} %removed \subsecfnt 29 July 2002 gkmt
 \def\theparagraph{\thesubsubsection.\arabic{paragraph}} %removed \subsecfnt 29 July 2002 gkmt
+
 \newif\if@uchead
 \@ucheadfalse
 
@@ -963,23 +959,37 @@
     \@startsection{part}{9}{\z@}{-10\p@ \@plus -4\p@ \@minus -2\p@}
         {4\p@}{\normalsize\@ucheadtrue}%
 }
+
+% Rationale for changes made in next four definitions:
+% "Before skip" is made elastic to provide some give in setting columns (vs.
+% parskip, which is non-elastic to keep section headers "anchored" to their
+% subsequent text.
+%
+% "After skip" is minimized -- BUT setting it to 0pt resulted in run-in heads, despite
+% the documentation asserted only after-skip < 0pt would have result.
+%
+% Baselineskip added to style to ensure multi-line section titles, and section heads
+% followed by another section head rather than text, are decently spaced vertically.
+% 12 Jan 2000 gkmt
 \def\section{%
-    \@startsection{section}{1}{\z@}{-10\p@ \@plus -4\p@ \@minus -2\p@}% GM
-    {4\p@}{\baselineskip 14pt\secfnt\@ucheadtrue}%
+    \@startsection{section}{1}{\z@}{-10\p@ \@plus -4\p@ \@minus -2\p@}%
+    {0.5pt}{\baselineskip=14pt\secfnt\@ucheadtrue}%
 }
 
 \def\subsection{%
-    \@startsection{subsection}{2}{\z@}{-8\p@ \@plus -2\p@ \@minus -\p@}
-    {4\p@}{\secfnt}%
+    \@startsection{subsection}{2}{\z@}{-10\p@ \@plus -4\p@ \@minus -2\p@}
+    {0.5pt}{\baselineskip=14pt\secfnt}%
 }
 \def\subsubsection{%
-    \@startsection{subsubsection}{3}{\z@}{-8\p@ \@plus -2\p@ \@minus -\p@}%
-    {4\p@}{\subsecfnt}%
+    \@startsection{subsubsection}{3}{\z@}{-10\p@ \@plus -4\p@ \@minus -2\p@}%
+    {0.5pt}{\baselineskip=14pt\subsecfnt}%
 }
+
 \def\paragraph{%
-    \vskip 12pt\@startsection{paragraph}{3}{\z@}{6\p@ \@plus \p@}%
-    {-5\p@}{\subsecfnt}%
+    \@startsection{paragraph}{3}{\z@}{-10\p@ \@plus -4\p@ \@minus -2\p@}%
+    {0.5pt}{\baselineskip=14pt\subsecfnt}%
 }
+
 \let\@period=.
 \def\@startsection#1#2#3#4#5#6{%
         \if@noskipsec  %gkmt, 11 aug 99
@@ -987,24 +997,41 @@
         \leavevmode
         \global\let\@period.%
     \fi
-      \par %
+    \par
     \@tempskipa #4\relax
     \@afterindenttrue
     \ifdim \@tempskipa <\z@
         \@tempskipa -\@tempskipa
         \@afterindentfalse
     \fi
-    \if@nobreak
-    \everypar{}%
-    \else
+    %\if@nobreak  11 Jan 00 gkmt
+        %\everypar{}
+    %\else
         \addpenalty\@secpenalty
         \addvspace\@tempskipa
-    \fi
-\parskip=0pt % GM July 2000 (non numbered) section heads
+    %\fi
+    \parskip=0pt
     \@ifstar
         {\@ssect{#3}{#4}{#5}{#6}}
         {\@dblarg{\@sect{#1}{#2}{#3}{#4}{#5}{#6}}}%
 }
+
+
+\def\@ssect#1#2#3#4#5{%
+  \@tempskipa #3\relax
+  \ifdim \@tempskipa>\z@
+    \begingroup
+      #4{%
+        \@hangfrom{\hskip #1}%
+          \interlinepenalty \@M #5\@@par}%
+    \endgroup
+  \else
+    \def\@svsechd{#4{\hskip #1\relax #5}}%
+  \fi
+  \vskip -10.5pt  %gkmt, 7 jan 00 -- had been -14pt, now set to parskip
+  \@xsect{#3}\parskip=10.5pt} % within the starred section, parskip = leading 12 Jan 2000 gkmt
+
+
 \def\@sect#1#2#3#4#5#6[#7]#8{%
     \ifnum #2>\c@secnumdepth
         \let\@svsec\@empty
@@ -1013,7 +1040,7 @@
         \edef\@svsec{%
             \begingroup
                 %\ifnum#2>2 \noexpand\rm \fi % changed to next 29 July 2002 gkmt
-			\ifnum#2>2 \noexpand#6 \fi
+            \ifnum#2>2 \noexpand#6 \fi
                 \csname the#1\endcsname
             \endgroup
             \ifnum #2=1\relax .\fi
@@ -1036,8 +1063,8 @@
             \endgroup
         \endgroup
         \csname #1mark\endcsname{#7}%
-        \vskip -12pt  %gkmt, 11 aug 99 and GM July 2000 (was -14) - numbered section head spacing
-\addcontentsline{toc}{#1}{%
+        \vskip -10.5pt  % -14pt gkmt, 11 aug 99 -- changed to -\parskip 11 Jan 2000
+      \addcontentsline{toc}{#1}{%
             \ifnum #2>\c@secnumdepth \else
                 \protect\numberline{\csname the#1\endcsname}%
             \fi
@@ -1062,8 +1089,7 @@
             }%
         }%
     \fi
-    \@xsect{#5}\hskip 1pt
-    \par
+    \@xsect{#5}\parskip=10.5pt% within the section, parskip = leading 12 Jan 2000 gkmt
 }
 \def\@xsect#1{%
     \@tempskipa #1\relax
@@ -1095,6 +1121,7 @@
     \fi
     \ignorespaces
 }
+
 \def\@trivlist{%
     \@topsepadd\topsep
     \if@noskipsec
@@ -1124,9 +1151,10 @@
     \@outerparskip\parskip
 }
 
-%%% Actually, 'abbrev' works just fine as the default
+%%% Actually, 'abbrev' works just fine as the default - Gerry Feb. 2000
 %%% Bibliography style.
 
+\parindent 0pt
 \typeout{Using 'Abbrev' bibliography style}
 \newcommand\bibyear[2]{%
     \unskip\quad\ignorespaces#1\unskip
@@ -1198,11 +1226,12 @@
             \fi
         }%
     }%
-    \@ifstar\@citeyear\@citeyear  % GM July 2000
+    \@ifstar\@citeyear\@citeyear % changed from  "\@ifstart" 12 Jan 2000 gkmt
 }
+
 \def\@citenormal{%
     \@ifnextchar [{\@tempswatrue\@citex;}
-                  {\@tempswafalse\@citex,[]}% % GM July 2000
+                  {\@tempswafalse\@citex,[]}% was ; Gerry 2/24/00
 }
 \def\@citeyear{%
     \@ifnextchar [{\@tempswatrue\@citex,}%
@@ -1235,8 +1264,7 @@
 \def\thebibliography#1{%
 \ifnum\addauflag=0\addauthorsection\global\addauflag=1\fi
     \section{%
-       {REFERENCES}
-         \vskip -9pt  % GM July 2000 (for tighter spacing)
+       {References} % was uppercased but this affects pdf bookmarks (SP/GM Oct. 2004)
         \@mkboth{{\refname}}{{\refname}}%
     }%
     \list{[\arabic{enumi}]}{%
@@ -1244,13 +1272,12 @@
         \leftmargin\labelwidth
         \advance\leftmargin\labelsep
         \advance\leftmargin\bibindent
-        \parsep=0pt\itemsep=1pt % GM July 2000
         \itemindent -\bibindent
         \listparindent \itemindent
         \usecounter{enumi}
     }%
     \let\newblock\@empty
-    \raggedright % GM July 2000
+    \raggedright  %% 7 JAN 2000 gkmt
     \sloppy
     \sfcode`\.=1000\relax
 }
@@ -1340,9 +1367,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \ps@plain
 \baselineskip=11pt
-\let\thepage\relax % For NO page numbers - GM Nov. 30th. 1999 and July 2000
+\let\thepage\relax % For  NO page numbers - Gerry Nov. 30th. 1999
 \def\setpagenumber#1{\global\setcounter{page}{#1}}
-%\pagenumbering{arabic}  % Arabic page numbers GM July 2000
+%\pagenumbering{arabic}  % Arabic page numbers but commented out for NO page numbes - Gerry Nov. 30th. 1999
 \twocolumn             % Double column.
 \flushbottom           % Even bottom -- alas, does not balance columns at end of document
 \pagestyle{plain}
@@ -1352,20 +1379,14 @@
 \newtoks\copyrtyr
 \newtoks\acmcopyr
 \newtoks\boilerplate
-\global\acmcopyr={X-XXXXX-XX-X/XX/XX}  % Default - 5/11/2001 *** Gerry
-\global\copyrtyr={200X}                % Default - 3/3/2003 *** Gerry
 \def\CopyrightYear#1{\global\copyrtyr{#1}}
 \def\crdata#1{\global\acmcopyr{#1}}
 \def\permission#1{\global\boilerplate{#1}}
 %
-\global\boilerplate={Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page.  To copy otherwise, to republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee.}
 \newtoks\copyrightetc
-\global\copyrightetc{Copyright is held by Sun Microsystems, Inc. \\
-ICSOC'04, November 15-19, 2004, New York, New York, USA. \\
-ACM 1-58113-871-7/04/0011}
+\global\copyrightetc{\ } %  Need to have 'something' so that adequate space is left for pasting in a line if "confinfo" is supplied.
 
 \toappear{\the\boilerplate\par
-{\confname{\the\conf}} \the\confinfo\par \the\copyrightetc.}
-%
-%% End of sig-alternate.cls -- V1.6 - 10/02/2002 --
-%% Gerry Murray -- Wednesday October 2nd. 2002
+{\confname{\the\conf}} \the\confinfo\par \the\copyrightetc}
+% End of ACM_PROC_ARTICLE-SP.CLS -- V2.7SP - 10/15/2004 --
+% Gerry Murray -- October 15th. 2004

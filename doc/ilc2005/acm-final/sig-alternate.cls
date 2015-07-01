@@ -1,6 +1,6 @@
-% SIG-ALTERNATE.CLS - VERSION 1.6
-% "COMPATIBLE" WITH THE "ACM_PROC_ARTICLE-SP.CLS" V2.6SP
-% Gerald Murray October 2nd. 2002
+% SIG-ALTERNATE.CLS - VERSION 1.7
+% "COMPATIBLE" WITH THE "ACM_PROC_ARTICLE-SP.CLS" V2.7SP
+% Gerald Murray October 15th. 2004
 %
 % ---- Start of 'updates'  ----
 %
@@ -22,9 +22,9 @@
 %
 % ---- End of 'updates' ----
 %
-\def\fileversion{v1.6}          % for ACM's tracking purposes
-\def\filedate{October 2, 2002}    % Gerry Murray's tracking data
-\def\docdate {Wednesday 2nd. October 2002} % Gerry Murray (with deltas to doc}
+\def\fileversion{v1.7}          % for ACM's tracking purposes
+\def\filedate{October 15, 2004}    % Gerry Murray's tracking data
+\def\docdate {Friday 15th. October 2004} % Gerry Murray (with deltas to doc}
 \usepackage{epsfig}
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -90,14 +90,14 @@
 %%% You may turn this hackery off via the -e option:
 %%%     dvips -e 0 foo.dvi >foo.ps
 %%%
-\typeout{Document Class 'sig-alternate' <2nd. October '02>.  Modified by G.K.M. Tobin/Gerry Murray}
+\typeout{Document Class 'sig-alternate' <15th. October '04>.  Modified by G.K.M. Tobin/Gerry Murray}
 \typeout{Based in part upon document Style `acmconf' <22 May 89>. Hacked 4/91 by}
 \typeout{shivers@cs.cmu.edu, 4/93 by theobald@cs.mcgill.ca}
 \typeout{Excerpts were taken from (Journal Style) 'esub2acm.cls'.}
 \typeout{****** Bugs/comments/suggestions/technicalities to Gerry Murray -- murray@hq.acm.org ******}
 \typeout{Questions on the style, SIGS policies, etc. to Adrienne Griscti griscti@acm.org}
-\oddsidemargin 2.5pc
-\evensidemargin 2.5pc
+\oddsidemargin 4.5pc
+\evensidemargin 4.5pc
 \advance\oddsidemargin by -1in  % Correct for LaTeX gratuitousness
 \advance\evensidemargin by -1in % Correct for LaTeX gratuitousness
 \marginparwidth 0pt             % Margin pars are not allowed.
@@ -123,10 +123,8 @@
 \headheight 12pt                % Height of box containing running head.
 \headsep 25pt                   % Space between running head and text.
 
-%\textheight 666pt       % 9 1/4 column height
-%\textheight 716pt
-\textheight 736pt
-\textwidth 45pc         % Width of text line.
+\textheight 666pt       % 9 1/4 column height
+\textwidth 42pc         % Width of text line.
                         % For two-column mode:
 \columnsep 2pc          %    Space between columns
 \columnseprule 0pt      %    Width of rule between columns.
@@ -560,8 +558,8 @@
  \setcounter{footnote}{0}
  \let\maketitle\relax
  \let\@maketitle\relax
- \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\gdef\@subtitle{}\let\thanks\relax}
-% \@copyrightspace
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\gdef\@subtitle{}\let\thanks\relax
+ \@copyrightspace}
 
 %% CHANGES ON NEXT LINES
 \newif\if@ll % to record which version of LaTeX is in use
@@ -573,7 +571,7 @@
 
 \if@ll
   \NeedsTeXFormat{LaTeX2e}
-  \ProvidesClass{acm-final/sig-alternate-modified} [2002/02/10 - V1.6 - based on acmproc.cls V1.3 <Nov. 30 '99>]
+  \ProvidesClass{sig-alternate} [2004/15/10 - V1.7 - based on acmproc.cls V1.3 <Nov. 30 '99>]
   \RequirePackage{latexsym}% QUERY: are these two really needed?
   \let\dooptions\ProcessOptions
 \else
@@ -1232,27 +1230,26 @@
 \newdimen\bibindent
 \setcounter{enumi}{1}
 \bibindent=0em
-\def\thebibliography#1{%
-\ifnum\addauflag=0\addauthorsection\global\addauflag=1\fi
-    \section{%
-       {REFERENCES}
-         \vskip -9pt  % GM July 2000 (for tighter spacing)
-        \@mkboth{{\refname}}{{\refname}}%
-    }%
-    \list{[\arabic{enumi}]}{%
-        \settowidth\labelwidth{[#1]}%
-        \leftmargin\labelwidth
-        \advance\leftmargin\labelsep
-        \advance\leftmargin\bibindent
-        \parsep=0pt\itemsep=1pt % GM July 2000
-        \itemindent -\bibindent
-        \listparindent \itemindent
-        \usecounter{enumi}
-    }%
-    \let\newblock\@empty
-    \raggedright % GM July 2000
-    \sloppy
-    \sfcode`\.=1000\relax
+\def\thebibliography#1{% \ifnum\addauflag=0\addauthorsection\global\addauflag=1\fi
+     \section[References]{%    <=== OPTIONAL ARGUMENT ADDED HERE
+        {References} % was uppercased but this affects pdf bookmarks (SP/GM October 2004)
+          \vskip -9pt  % GM July 2000 (for tighter spacing)
+         \@mkboth{{\refname}}{{\refname}}%
+     }%
+     \list{[\arabic{enumi}]}{%
+         \settowidth\labelwidth{[#1]}%
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \advance\leftmargin\bibindent
+         \parsep=0pt\itemsep=1pt % GM July 2000
+         \itemindent -\bibindent
+         \listparindent \itemindent
+         \usecounter{enumi}
+     }%
+     \let\newblock\@empty
+     \raggedright % GM July 2000
+     \sloppy
+     \sfcode`\.=1000\relax
 }
 
 
@@ -1360,12 +1357,10 @@
 %
 \global\boilerplate={Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page.  To copy otherwise, to republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee.}
 \newtoks\copyrightetc
-\global\copyrightetc{Copyright is held by Sun Microsystems, Inc. \\
-ICSOC'04, November 15-19, 2004, New York, New York, USA. \\
-ACM 1-58113-871-7/04/0011}
+\global\copyrightetc{Copyright \the\copyrtyr\ ACM \the\acmcopyr\ ...\$5.00}
 
 \toappear{\the\boilerplate\par
 {\confname{\the\conf}} \the\confinfo\par \the\copyrightetc.}
 %
-%% End of sig-alternate.cls -- V1.6 - 10/02/2002 --
-%% Gerry Murray -- Wednesday October 2nd. 2002
+%% End of sig-alternate.cls -- V1.7 - 10/15/2004 --
+%% Gerry Murray -- Wednesday October 15th. 2004

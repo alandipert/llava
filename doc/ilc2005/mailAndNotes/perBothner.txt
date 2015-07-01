@@ -1,0 +1,186 @@
+Date: Thu, 19 May 2005 23:14:39 -0700
+From: Per Bothner <per@bothner.com>
+Subject: Re: See you at ILC2005
+Sender: per@bothner.com
+To: Harold Carr <Harold.Carr@Sun.COM>
+
+Harold Carr wrote:
+> 
+> I'm Harold Carr.  We've exchange mail a few time and had lunch
+> together once in Cupertino - an Indian restaurant on Stevens Creek in
+> Cupertino if I recall correctly.
+
+I remember, vaguely.  I can't visualize what you look like, but
+I'm sure I'll recognize you.
+
+> I have a simple question regarding Kawa for my paper.  Does Kawa
+> implement the Scheme reader and writer in Java code or in *.scm code
+> (that is then compiled to byte codes)?  I see import
+> import gnu.kawa.lispexpr.ScmRead being referenced.
+
+The reader is written is Java.  Mainly to simplify boostrapping.
+The same reader is used for Scheme, Common Lisp, Emacs Lisp, and BRL,
+with appropriate customization.  It is table driven, and follow sthe
+Commmon Lisp spec, in design: The Common Lisp read-table functionality
+is more-or-less available as Scheme functions, but not exactly with the
+same functions as the Common Lisp spec - so far.
+
+> ps:  I live in Utah but still work for Sun (since 1994).
+
+I still live in Cupertino, working as consultant - at the momement
+I'm getting paid to work on Kawa Scheme, which is nice.
+
+> pps: When running TAK on Kawa I noticed that when tak is defined
+> 
+> (define (tak x y z) ...)
+> 
+> compared to:
+> 
+> (define tak
+>   (lambda (x y z) ...))
+> 
+> the version with the explicit lambda runs slower.  This seems to be a
+> consistent pattern on other gabriel tests also.  Do you know why?
+
+Yes.  The compiler treats the former as a hint that tak is constant,
+so it can call it directly.  The latter form is interpreted as an
+initialization of a variable that might get re-assigned.  It's not 100%
+standard Scheme (though you can disable the optimization with
+--no-inline), but I think it's a reasonable convention.
+
+I guess I could go the other way: add an option to tell the compiler
+that it's seeing the "whole program".
+-- 
+	--Per Bothner
+per@bothner.com   http://per.bothner.com/
+
+------------------------------------------------------------------------------
+
+Date: Wed, 25 May 2005 10:41:46 -0700
+From: Per Bothner <per@bothner.com>
+Subject: Re: See you at ILC2005
+Sender: per@bothner.com
+To: Harold.Carr@Sun.COM
+
+harold carr wrote:
+> In my benchmarks comparing Kawa, Jscheme and llava (my language that I
+> am reporting on a ILC2005) Kawa is always an order of magnitude faster
+> than the others.  Except in fprint and fread.  In that case all three
+> are in the same ballpark.  I figured that was because they all do
+> read/write in Java code - which is the case as you confirmed.
+
+Note that Kawa printing by default does pretty-printing (i.e. tries
+to break long lines appropriately).  For input it uses a table
+driver reader compatible with Common Lisp's read-table mechanism.
+It also tracks line and column numbers.
+
+OTOH, there's no smarts yet for reading/printing cycles.
+
+Note that one of the strengths of Kawa is fairly good access to Java
+libraries.  There are a number of convenient ways of efficiently
+calling Java methods; you can specify Java types, etc.  You can
+also easily define Java classes.  So if
+frustration with Kawa lead to llava, perhaps you could reconsider.
+
+If nothing else, you might re-target llava as a language using the
+Kawa framework.  Kawa now supports multiple languages in a fairly
+consistent framework - in fact my ILC2005 talk is about primarily
+about implementing Emacs Lisp and Common Lisp using Kawa.
+
+As soon as I make a much-delayed Kawa release, one of the main
+focuses will be better integration/conversion between Kawa types
+and Java types.  Already +, -, and * automatically "do the right
+thing" with a lot of different types; the goal is to make a framework
+for doing this more generally and efficiently.  (This is also
+desirable for XQuery, which adds a lot of new data types and
+operations.)
+
+> That gives me more confidence in my benchmarking.
+
+Note there is what I'd call an optimization bug.
+Consider:
+
+(define (factr1 (x :: <int>) (acc :: <integer>)) :: <integer>
+   (if (> x 0)
+       (factr1 (- x 1) (* acc x))
+   acc))
+
+(define (fact1 (x :: <int>)) :: <integer>
+   (factr1 x 1))
+
+(define (fact2 (x :: <int>)) :: <integer>
+   (let factr2 ((x :: <int> x) (acc :: <integer> 1))
+     (if (> x 0)
+	(factr2 (- x 1) (* acc x))
+	acc)))
+
+The fact1r function is compiled to a method, and calling it
+compiles to a direct method invocation without extra indirection.
+However, it is not tail-recursive.
+
+The fact2r is tail-recursive *and* it is inlined in fact2.
+-- 
+	--Per Bothner
+per@bothner.com   http://per.bothner.com/
+
+
+------------------------------------------------------------------------------
+
+Date: Wed, 25 May 2005 11:21:59 -0700
+From: Per Bothner <per@bothner.com>
+Subject: Re: See you at ILC2005
+Sender: per@bothner.com
+To: Harold.Carr@Sun.COM
+
+harold carr wrote:
+> I can send you a copy of the paper if you would like.
+
+Sure.  It would be nice to read it before the meeting.
+(I still don't know which day(s) I'll be there.  Probably
+only whatever day(s) I get in for free.
+
+  > That is certainly a possibility - my current implementation is a useful
+> prototype of the LANGUAGE.  I've used it extensively for personal
+> programs.  I have done NO optimizations.  So targeting the Kawa
+> framework is certainly an interesting possibility.
+
+It shouldn't be very difficult.  Create a Llave class that extends
+LispLanguage (or an existing class).  You can use the existing reader
+and printer, perhaps with some language-specific tweaking.  Mainly
+it's a matter of populating the environment of standard functions
+and syntax forms, I would expect.  Kawa now support syntax-case, so
+in many cases you can probably just write syntax-case definitions
+that translate Llava forms to Scheme forms.  (Kawa can use namespaces
+to control things.)
+
+> I imagine you say it is NOT tail-recursive because it is calling a
+> METHOD- thus the Java stack grows.
+
+Correct.
+> 
+>>The fact2r is tail-recursive *and* it is inlined in fact2.
+> 
+> 
+> I imagine the tail-recursion and inlining are enabled since you see the
+> local definition and the fact that the definition does NOT get returned.
+
+Right.  But I still think Kawa shoudl in the default cmpilation mode
+compile the first version tail-recursively.  Of course only if
+"inlining" is allowed.
+
+> Will you be able to use anything in JSR 223 - Scripting for the Java
+> Platform?
+
+I'm on the Expert Group, but haven't been able to do much - not even
+try the Reference Implementation.  Sigh.
+
+> I cite Kawa in my paper.  Right now I just have the web site.  What
+> papers on Kawa can I cite?
+
+See http://per.bothner.com/papers/  The 1998 Lisp Users Conference
+might be the most appropriate citation.
+-- 
+	--Per Bothner
+per@bothner.com   http://per.bothner.com/
+
+;;; End of file.

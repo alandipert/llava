@@ -1,0 +1,10 @@
+This version is Java 1.4.
+
+(assert <boolean expression>)
+
+Java runtime hotspot optimization on reflective methods
+
+JSR for Groovy/Scripting
+    reflective does not throw exception
+    indicate type of null
+

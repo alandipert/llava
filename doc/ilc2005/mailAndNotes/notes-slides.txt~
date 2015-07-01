@@ -1,0 +1,132 @@
+ILC2005
+caddadar
+
+
+==============================================================================
+Initial Motivation: iteractive Java
+	Kawa, Skij, Silk/JScheme
+
+Then motivated to roll-my-own
+        Java in Lisp Syntax
+
+But still have too much Lisp/Scheme biases
+
+Current Motivation:
+	Like Java easy for C++ types because syntax similar.
+
+	Make llava easy for Java types
+	     Just prefix version
+
+
+syntax
+namespaces
+annotations
+implementation
+
+	IDEs
+	Editors
+	Debuggers
+	Unicode
+	JSRs - beanshell - 
+
+systems
+
+------------------------------------------------------------------------------
+
+papers at this conference
+
+_Common Lisp For Java_ - Jerry Boetje p 63
+
+List extends java.util.Collection
+Lisp numbers implement java.lang.Comparable
+java packages via lisp package
+     make constructors, fields and methods available
+     lisp.common.function.Car viz COMMON-LISP:CAR
+     case sensitivity requires strings.
+
+(defgeneric java.io:PrintStream.println (stream object))
+(defmethod java.io:PrintStream.println 
+  ((java.io:PrintStream.println stream) object)
+  (call-next-method))
+(java.io.PrintStream.println
+  java.lang:System.out "Hello World")
+
+(println out "Hello World")
+
+-------------------------
+_Mixing Lisps in Kawa_ - Per Bothner p 83
+
+Pairs with line/column numbers - for stack traces, debugging, ...
+
+'(), 'nil #f: Scheme: - 3 distinct objects; CL: same
+
+(define (int-max (x :: <int>) (y :: <int>)) :: <int>
+  (if (> x y) x y))
+
+define-class / define-simple-class
+
+debug via line/column numbers + Eclipse plugin
+
+scheme/lisp names "mangled" to valid Java names
+
+-------------------------
+
+_llava - Java in Lisp Syntax_ - Harold Carr p 89
+
+introducing variables (let ()...) instead of "inline" like Java
+
+-------------------------
+
+_Common Larcency_ - Will Clinger p 101
+
+Uses JScheme JavaDot notation for interoperation with other CLR languages
+
+class	       System.Object.class
+constructor    (System.Collections.Hashtable. 100)
+dynamic method (.ContainsKey ht key)
+static method  (System.String.op_equality "abc" "def")
+instance field (.name$ x)
+instance field (set-.name$ x "foo")
+static field   (Scheme.Rep.SFixnum.maxPreAlloc$)
+
+Scheme procedures can be passed to C# as callback procedures.
+
+ref types all derive from common SchemeObject
+  because CLR can union finum, boolean, character annd reference types
+two control stacks - because need advance control
+both of above bad for debugging
+
+-------------------------
+_Designing Lisp for Ubiquity_ - Patrick Dussud p 9 and 125
+
+Meta programming
+Native
+IDE
+Use existing libraries, frameworks
+Use standard IDE/Tools
+debuggers, 
+linkers - same byte code/binary files
+
+-------------------------
+
+_Curl: A Content Language for the Web_ Halstead, Hostetter, Kranz p 169
+
+
+{let a:int = 3}
+
+{sqrt a + 1}
+
+optional &rest arguments
+keyword properties (e.g., HTML attrbutes)
+unicode
+
+-------------------------
+
+_Implementing S-Expr Based Extended Langs in Lisp_ Hiraishi, Yasugi,Yuasa p 179
+
+-------------------------
+
+_Generating .NET Applications Using Lisp_, Alex Peake p 299
+
+-------------------------
+
