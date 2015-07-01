@@ -127,7 +127,7 @@ public class NamespaceImpl
 	// Maps <package>[.<package>]* to its namespace representation.
 	// Used to find existing namespaces.
 
-	Hashtable fullNameNamespaceMap = new Hashtable();
+      Hashtable<String,Namespace> fullNameNamespaceMap = new Hashtable<String,Namespace>();
 
 	// The root namespace contains the built-in system procedures.
 	// It MUST start as null so create call will work during
@@ -147,8 +147,8 @@ public class NamespaceImpl
 	// If two llava files each import each other we need to stop
 	// circular loading.
 
-	Set llavaFilesCurrentlyBeingLoaded =
-	    Collections.synchronizedSet(new HashSet());
+	Set<String> llavaFilesCurrentlyBeingLoaded =
+	    Collections.synchronizedSet(new HashSet<String>());
 
 	// Marker to return when values not found in map.
 
@@ -303,6 +303,7 @@ public class NamespaceImpl
 	this.classVariables = classVariables;
     }
 
+    @SuppressWarnings("unchecked")
     public NamespaceImpl (String name, Namespace root, 
 			  ClassVariables classVariables)
     {
@@ -962,7 +963,7 @@ else
 	return classVariables.repl = repl;
     }
 
-    public Set getLlavaFilesCurrentlyBeingLoaded ()
+    public Set<String> getLlavaFilesCurrentlyBeingLoaded ()
     {
 	return classVariables.llavaFilesCurrentlyBeingLoaded;
     }

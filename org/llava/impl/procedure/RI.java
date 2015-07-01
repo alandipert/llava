@@ -576,7 +576,7 @@ public class RI
     //
   
     // 89 - see _Java 2 Performance and Idiom Guide_ p 67.
-    private static Map   cachedMethods = new HashMap(89);
+    private static Map   cachedMethods = new HashMap<Key,Method>(89);
 
     private static Class NullClass;
     private static Class BooleanClass;

@@ -29,7 +29,7 @@ public class SymbolImpl
     // quasi-atomic: get/setEnvTopLevelIndex works across llava instances.
     // See EnvironmenTopLevelImp for why.
     // REVISIT capacity/load factor.
-    private static HashMap symbols = new HashMap();
+    private static HashMap symbols = new HashMap<String,Symbol>();
 
     private String  name;
     private int     topLevelIndex = -1;
