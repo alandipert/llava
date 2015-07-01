@@ -11,6 +11,7 @@
 (require '[adzerk.boot-template :refer [template]]
          '[alandipert.boot-trinkets :refer [run]])
 
+(ns-unmap *ns* 'test)
 (deftask test
   "Build and test."
   []
